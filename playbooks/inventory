@@ -10,7 +10,7 @@ aex-test2-target enabled=false
 test_target_dev
 test_target_qul
 
-[test-site2:children]
+[test_site2:children]
 awx-dev2-target enabled=false
 aex-test2-target enabled=false
 

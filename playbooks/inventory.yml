@@ -1,0 +1,55 @@
+all:
+   hosts:
+   children:
+   
+      test_target_dev_site1:
+         hosts:
+           awx-dev-target:
+              enabled: false
+      test_target_dev_site2:
+         hosts:
+           awx-dev2-target:
+              enabled: false
+      test_target_qul_site1:
+         hosts:
+           awx-test-target:
+              enabled: true
+      test_target_qul_site2:
+         hosts:
+           awx-test2-target:
+              enabled: false
+              
+      test_target_qul:
+         children:
+           test_target_qul_site1:
+           test_target_qul_site2:
+         vars:
+            env: qul
+
+      test_target_dev:
+         children:
+           test_target_dev_site1:
+           test_target_dev_site2:
+         vars:
+           env: dev
+           
+      test_site1:
+         children:
+           test_target_dev_site1:
+           test_target_qul_site1:
+         vars:
+           site: 1
+           
+      test_site2:
+         children:
+           test_target_dev_site2:
+           test_target_qul_site2:
+         vars:
+           site: 2
+           
+      test_target:
+         children:
+           test_target_dev:
+           test_target_qul:
+         vars:
+            foo: bar

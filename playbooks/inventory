@@ -1,8 +1,8 @@
 [test_target_dev]
-awx-dev-target
+awx-dev-target enabled=true
 
 [test_target_qul]
-awx-test-target
+awx-test-target  enabled=true
 
 [test_target:children]
 test_target_dev

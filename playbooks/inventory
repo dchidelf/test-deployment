@@ -7,10 +7,3 @@ awx-test-target
 [test_target:children]
 test_target_dev
 test_target_qul
-
-[test_target:vars]
-foo=bar
-zim=zam
-
-[test_target_dev:vars]
-other=stuff

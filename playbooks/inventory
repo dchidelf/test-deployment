@@ -1,8 +1,12 @@
 [test_target_dev]
+awx-dev-target
+
+[test_target_qul]
 awx-test-target
 
-[test_target]
-awx-test-target
+[test_target:children]
+test_target_dev
+test_target_qul
 
 [test_target:vars]
 foo=bar

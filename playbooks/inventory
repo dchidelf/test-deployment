@@ -1,21 +1,46 @@
-[test_target_dev]
+[test_target_dev_site1]
 awx-dev-target enabled=false
+
+[test_target_dev_site2]
 awx-dev2-target enabled=false
 
-[test_target_qul]
+[test_target_qul_site1]
 awx-test-target  enabled=true
+
+[test_target_qul_site2]
 aex-test2-target enabled=false
+
+[test_target_dev:children]
+test_target_dev_site1
+test_target_dev_site2
+
+[test_target_qul:children]
+test_target_qul_site1
+test_target_qul_site2
 
 [test_target:children]
 test_target_dev
 test_target_qul
 
-[test_site2]
-awx-dev2-target enabled=false
-aex-test2-target enabled=false
+[test_site2:children]
+test_target_dev_site2
+test_target_qul_site2
+
+[test_site1:children]
+test_target_dev_site1
+test_target_qul_site1
 
 [test_target:vars]
 foo=bar
 
 [test_target_dev:vars]
-test=123
+env=dev
+
+[test_target_qul:vars]
+env=qul
+
+[test_site1:vars]
+site=1
+
+[test_site2:vars]
+site=2

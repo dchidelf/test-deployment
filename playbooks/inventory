@@ -1,12 +1,18 @@
 [test_target_dev]
 awx-dev-target enabled=false
+awx-dev2-target enabled=false
 
 [test_target_qul]
 awx-test-target  enabled=true
+aex-test2-target enabled=false
 
 [test_target:children]
 test_target_dev
 test_target_qul
+
+[test-site2:children]
+awx-dev2-target enabled=false
+aex-test2-target enabled=false
 
 [test_target:vars]
 foo=bar

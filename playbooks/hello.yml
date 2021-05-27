@@ -3,4 +3,4 @@
   tasks:
     - name: Hello Message
       debug:
-        msg: "Hello World! env:{{ env }} site:{{ site }}"
+        msg: "Hello World! env:{{ env }} site:{{ site }} secret:{{ secret }}"

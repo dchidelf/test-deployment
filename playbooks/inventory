@@ -1,2 +1,12 @@
+[test_target_dev]
+awx-test-target
+
 [test_target]
 awx-test-target
+
+[test_target:vars]
+foo=bar
+zim=zam
+
+[test_target_dev:vars]
+other=stuff
